@@ -1,11 +1,9 @@
 package console.simple.server;
 
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 
 /**
  * This application demonstrate the application of DataInputStream and 
