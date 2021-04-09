@@ -8,8 +8,28 @@ import java.net.Socket;
 
 import data.model.Location;
 
+
+/**
+ * This class demonstrate the application of ObjectInputStream and 
+ * ObjectOutputStream at the server-side application.
+ * 
+ * How to run this program?
+ * 
+ * 1. Open Terminal
+ * 2. Change the directory to /workspace-dad/demoObjectStream/bin
+ * 3. Run -> java console.server.ClientSideApp
+ * 
+ * @author emalianakasmuri
+ *
+ */
+
 public class ClientSideApp {
 
+	/**
+	 * Main entry point of program
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		System.out.println("ClientSideApp: Demo of DataOutputStream\n");
