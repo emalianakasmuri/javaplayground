@@ -48,7 +48,7 @@ public class ServerSideApp {
 				// Create input stream to read object
 				ObjectInputStream objectIS = new ObjectInputStream(socket.getInputStream());
 				
-				// Read object from stream
+				// Read object from stream and cast to Location
 				Location location = (Location) objectIS.readObject();
 				
 				// Process object

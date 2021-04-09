@@ -1,5 +1,6 @@
 package console.simple.client;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -47,15 +48,39 @@ public class ClientSideApp {
 			// Send request to server
 			System.out.println("Send data to server: " + request);
 			dataOS.writeInt(request);
+			dataOS.flush();
 			
+			System.out.println("Send data to server: " + price);
+			dataOS.writeFloat(price);
+			dataOS.flush();
 			
-			
+			System.out.println("Send data to server: " + amount);
+			dataOS.writeDouble(amount);
+			dataOS.flush();
+
+			System.out.println("Send data to server: " + flag);
+			dataOS.writeBoolean(flag);
+			dataOS.flush();
+
+			System.out.println("Send data to server: " + text);
+			dataOS.writeUTF(text);
+			dataOS.flush();
+
+			System.out.println("Send data to server: " + text + " (in bytes)");
+			dataOS.write(text.getBytes());
 			dataOS.flush();
 			
 			
+			//Open stream to receive data
+			DataInputStream dataIS = new DataInputStream(socket.getInputStream());
 			
+			// Get response from server and display the response
+			String response = dataIS.readUTF();
+			System.out.println("Response from server: " + response);
 			
-			// Close socket
+			// Close all closable objects
+			dataOS.close();
+			dataIS.close();
 			socket.close();
 			
 		} catch (IOException e) {
@@ -69,30 +94,6 @@ public class ClientSideApp {
 
 }
 
-/*System.out.println("Send data to server: " + price);
-dataOS.writeFloat(price);
-
-System.out.println("Send data to server: " + amount);
-dataOS.writeDouble(amount);
-
-System.out.println("Send data to server: " + flag);
-dataOS.writeBoolean(flag);
-
-System.out.println("Send data to server: " + text);
-dataOS.writeUTF(text);
-
-System.out.println("Send data to server: " + text + " (in bytes)");
-dataOS.write(text.getBytes());*/
-
-/*
-Put this after line 48
-
-//Open stream to receive data
-			DataInputStream dataIS = new DataInputStream(socket.getInputStream());
-			
-			// Get response from server and display the response
-			String response = dataIS.readUTF();
-			System.out.println("Response from server: " + response);*/
 			
 			
 			

@@ -53,7 +53,7 @@ public class ClientSideApp {
 			// Open stream to receive object
 			ObjectInputStream objectIS = new ObjectInputStream(socket.getInputStream());
 			
-			// Get object from stream and display details
+			// Get object from stream, cast and display details
 			locations = (ArrayList<Location>) objectIS.readObject();
 			for (Location location:locations)
 				System.out.println ("Id for " + location.getName() + " is " + location.getLocationId());

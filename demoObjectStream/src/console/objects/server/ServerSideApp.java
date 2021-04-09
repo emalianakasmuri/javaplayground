@@ -33,10 +33,10 @@ public class ServerSideApp {
 				// Create input stream to read object
 				ObjectInputStream objectIS = new ObjectInputStream(socket.getInputStream());
 				
-				// Read object from stream
+				// Read object from stream and cast it to ArrayList of Location
 				List<Location> locations = (ArrayList<Location>) objectIS.readObject();
 				
-				// Process object
+				// Process object - assign location id
 				for (int index=0; index < locations.size(); index++) {
 					
 					Location currentLocation = locations.get(index);
