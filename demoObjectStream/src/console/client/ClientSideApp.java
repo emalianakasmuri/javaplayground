@@ -32,7 +32,7 @@ public class ClientSideApp {
 	 */
 	public static void main(String[] args) {
 		
-		System.out.println("ClientSideApp: Demo of DataOutputStream\n");
+		System.out.println("ClientSideApp: Demo of Object Stream\n");
 
 		// Request data
 		Location location = new Location();
