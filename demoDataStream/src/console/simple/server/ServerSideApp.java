@@ -11,7 +11,7 @@ import java.net.Socket;
  * 
  * How to run this program?
  * 1. Open Terminal
- * 2. Change directory to workspace-dad/datainputstreamdemo/bin
+ * 2. Change directory to workspace-dad/demoDataStream/bin
  * 3. Type java console.simple.server.ServerSideApp
  * 
  * @author emalianakasmuri
