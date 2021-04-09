@@ -50,15 +50,16 @@ public class ServerSideApp {
 				System.out.println("Request from client: " + dataIS.readUTF());
 				
 				// Read string and convert to byte
-				byte raw[] = new byte[1024];
-				raw = dataIS.readAllBytes();
+				int size = dataIS.readInt();
+				byte raw[] = new byte[size];
+				dataIS.read(raw);
 				String data = new String(raw, StandardCharsets.UTF_8);
-				System.out.println("Request from client: " + data);
+				System.out.println("Request from client: " + data );
 				
 				// Create output stream to send result of data processing
 				DataOutputStream dataOS = new DataOutputStream(socket.getOutputStream());
 				String responseData = "Data received. Over and out.";
-				System.out.println("Request to client: " + responseData);
+				System.out.println("Reponse to client: " + responseData);
 				dataOS.writeUTF(responseData);
 				dataOS.flush();
 				

@@ -48,28 +48,25 @@ public class ClientSideApp {
 			// Send request to server
 			System.out.println("Send data to server: " + request);
 			dataOS.writeInt(request);
-			dataOS.flush();
 			
 			System.out.println("Send data to server: " + price);
 			dataOS.writeFloat(price);
-			dataOS.flush();
 			
 			System.out.println("Send data to server: " + amount);
 			dataOS.writeDouble(amount);
-			dataOS.flush();
 
 			System.out.println("Send data to server: " + flag);
 			dataOS.writeBoolean(flag);
-			dataOS.flush();
 
 			System.out.println("Send data to server: " + text);
 			dataOS.writeUTF(text);
 			dataOS.flush();
 
 			System.out.println("Send data to server: " + text + " (in bytes)");
+			dataOS.writeInt(text.getBytes().length);
+			dataOS.flush();
 			dataOS.write(text.getBytes());
 			dataOS.flush();
-			
 			
 			//Open stream to receive data
 			DataInputStream dataIS = new DataInputStream(socket.getInputStream());
